@@ -5,7 +5,6 @@ const initialState = {
   status: 'idle',
 };
 
-
 export const appSlice = createSlice({
   name: 'app',
   initialState,
@@ -16,7 +15,7 @@ export const appSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount } = appSlice.actions;
+export const { incrementByAmount } = appSlice.actions;
 
 export const selectApp = (state) => state.app.value;
 

@@ -1,12 +1,28 @@
 import React from 'react';
 import './App.css';
 import WebcamCapture from './components/WebcamCapture';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Preview from './components/Preview';
+import Chats from './components/Chats';
 
 function App() {
   return (
-    <div className="App">
-      <h2>Welcome to Snap Chat</h2>
-      <WebcamCapture />
+    <div className="app">
+      <Router>
+        <div className="app__body">
+          <Switch>
+            <Route path="/" exact>
+              <WebcamCapture />
+            </Route>
+            <Route path="/preview">
+              <Preview />
+            </Route>
+            <Route path="/chats">
+              <Chats />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
