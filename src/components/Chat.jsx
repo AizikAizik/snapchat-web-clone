@@ -19,6 +19,10 @@ const Chat = ({ id, timeStamp, read, userName, imageUrl, profilePic }) => {
       db.collection("posts").doc(id).set({ read: true }, { merge: true });
 
       history.push('/chats/view')
+    }else{
+      dispatch(selectImage(imageUrl));
+      history.push('/chats/view');
+
     }
   };
 
@@ -28,7 +32,7 @@ const Chat = ({ id, timeStamp, read, userName, imageUrl, profilePic }) => {
       <div className="chat__info">
         <h4>{userName}</h4>
         <p>
-          Tap to view -{" "}
+          {!read && 'Tap to view-'} {" "}
           <ReactTimeago date={new Date(timeStamp?.toDate()).toUTCString()} />
         </p>
       </div>
